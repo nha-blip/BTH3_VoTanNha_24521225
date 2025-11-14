@@ -17,55 +17,63 @@ namespace BTH3_VoTanNha_24521225
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtSTK.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            if (txtSTK.Text == "" || txtDiaChi.Text == "" || txtSoTien.Text == "" || txtTenKH.Text == "")
             {
                 MessageBox.Show("“Vui lòng nhập đầy đủ thông tin!");
             }
+            else if (!float.TryParse(txtSTK.Text, out float b))
+            {
+                MessageBox.Show("Số tài khoản phải là một số");
+            }
+            else if (!float.TryParse(txtSoTien.Text, out float a))
+            {
+                MessageBox.Show("Số tiền phải là một số");
+            }
             else
             {
-                for (int i = 0; i < listView1.Items.Count; i++)
+                for (int i = 0; i < lVThongTin.Items.Count; i++)
                 {
-                    if (listView1.Items[i].SubItems[1].Text == txtSTK.Text)
+                    if (lVThongTin.Items[i].SubItems[1].Text == txtSTK.Text)
                     {
-                        listView1.Items[i].SubItems[2].Text = textBox2.Text;
-                        listView1.Items[i].SubItems[3].Text = textBox3.Text;
-                        listView1.Items[i].SubItems[4].Text = (int.Parse(listView1.Items[i].SubItems[4].Text)+textBox4.Text).ToString();
+                        lVThongTin.Items[i].SubItems[2].Text = txtTenKH.Text;
+                        lVThongTin.Items[i].SubItems[3].Text = txtDiaChi.Text;
+                        lVThongTin.Items[i].SubItems[4].Text = (int.Parse(lVThongTin.Items[i].SubItems[4].Text) + int.Parse(txtSoTien.Text)).ToString();
                         MessageBox.Show("Cập nhật dữ liệu thành công!");
                         return;
                     }
                 }
-                int stt = listView1.Items.Count + 1;
+                int stt = lVThongTin.Items.Count + 1;
                 ListViewItem items = new ListViewItem(stt.ToString());
                 items.SubItems.Add(txtSTK.Text);
-                items.SubItems.Add(textBox2.Text);
-                items.SubItems.Add(textBox3.Text);
-                items.SubItems.Add(textBox4.Text);
-                listView1.Items.Add(items);
-                MessageBox.Show("Cập nhật dữ liệu thành công!");
+                items.SubItems.Add(txtTenKH.Text);
+                items.SubItems.Add(txtDiaChi.Text);
+                items.SubItems.Add(txtSoTien.Text);
+                lVThongTin.Items.Add(items);
+                MessageBox.Show("Thêm dữ liệu thành công!");
             }
         }
         private void UpdateSTT()
         {
-            for (int i = 0; i < listView1.Items.Count; i++)
+            for (int i = 0; i < lVThongTin.Items.Count; i++)
             {
-                listView1.Items[i].SubItems[0].Text = (i + 1).ToString();
+                lVThongTin.Items[i].SubItems[0].Text = (i + 1).ToString();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa",
                                                  "Xóa",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Warning);
             if (result == DialogResult.No) return;
-            for (int i = 0; i < listView1.Items.Count; i++)
+            for (int i = 0; i < lVThongTin.Items.Count; i++)
             {
-                if (listView1.Items[i].SubItems[1].Text == txtSTK.Text)
+                if (lVThongTin.Items[i].SubItems[1].Text == txtSTK.Text)
                 {
-                    listView1.Items[i].Remove();
+                    lVThongTin.Items[i].Remove();
                     UpdateSTT();
                     MessageBox.Show("Xóa tài khoản thành công");
                     return;
@@ -76,15 +84,32 @@ namespace BTH3_VoTanNha_24521225
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
+            if (lVThongTin.SelectedItems.Count > 0)
             {
-                ListViewItem lvI = listView1.SelectedItems[0];
+                ListViewItem lvI = lVThongTin.SelectedItems[0];
                 txtSTK.Text = lvI.SubItems[1].Text;
-                textBox2.Text=lvI.SubItems[2].Text;
-                textBox3.Text=lvI.SubItems[3].Text;
-                textBox4.Text=lvI.SubItems[4].Text;
+                txtTenKH.Text = lvI.SubItems[2].Text;
+                txtDiaChi.Text = lvI.SubItems[3].Text;
+                txtSoTien.Text = lvI.SubItems[4].Text;
             }
-            
+
+        }
+
+        private void Bai08_Resize(object sender, EventArgs e)
+        {
+            pnlMain.Location = new Point((ClientSize.Width - pnlMain.Width) / 2, (ClientSize.Height - pnlMain.Height) / 2);
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Thoát",
+                                                   "Bạn có chắc muốn thoát",
+                                                   MessageBoxButtons.YesNo,
+                                                   MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

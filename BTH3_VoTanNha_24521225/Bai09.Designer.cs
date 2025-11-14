@@ -52,7 +52,9 @@
             clH_ChuyenNganh = new ColumnHeader();
             clH_GioiTinh = new ColumnHeader();
             clH_SoMon = new ColumnHeader();
+            pnlMain = new Panel();
             grb_Nhap.SuspendLayout();
+            pnlMain.SuspendLayout();
             SuspendLayout();
             // 
             // grb_Nhap
@@ -73,7 +75,7 @@
             grb_Nhap.Controls.Add(lbl_GioiTinh);
             grb_Nhap.Controls.Add(lbl_HoTen);
             grb_Nhap.Controls.Add(lbl_MSV);
-            grb_Nhap.Location = new Point(95, 35);
+            grb_Nhap.Location = new Point(95, 11);
             grb_Nhap.Name = "grb_Nhap";
             grb_Nhap.Size = new Size(860, 447);
             grb_Nhap.TabIndex = 0;
@@ -248,9 +250,9 @@
             // lv_QuanLy
             // 
             lv_QuanLy.Columns.AddRange(new ColumnHeader[] { clH_STT, clH_MSV, clH_HoTen, clH_ChuyenNganh, clH_GioiTinh, clH_SoMon });
-            lv_QuanLy.Location = new Point(95, 488);
+            lv_QuanLy.Location = new Point(95, 455);
             lv_QuanLy.Name = "lv_QuanLy";
-            lv_QuanLy.Size = new Size(860, 420);
+            lv_QuanLy.Size = new Size(860, 411);
             lv_QuanLy.TabIndex = 1;
             lv_QuanLy.UseCompatibleStateImageBehavior = false;
             lv_QuanLy.View = View.Details;
@@ -284,17 +286,28 @@
             clH_SoMon.Text = "Số môn";
             clH_SoMon.Width = 80;
             // 
+            // pnlMain
+            // 
+            pnlMain.Controls.Add(lv_QuanLy);
+            pnlMain.Controls.Add(grb_Nhap);
+            pnlMain.Location = new Point(42, 1);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(1038, 891);
+            pnlMain.TabIndex = 2;
+            // 
             // Bai09
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1039, 999);
-            Controls.Add(lv_QuanLy);
-            Controls.Add(grb_Nhap);
+            ClientSize = new Size(1125, 897);
+            Controls.Add(pnlMain);
             Name = "Bai09";
-            Text = "Bai9";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Nhập liệu sinh viên";
+            Resize += Bai09_Resize;
             grb_Nhap.ResumeLayout(false);
             grb_Nhap.PerformLayout();
+            pnlMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -324,5 +337,6 @@
         private ColumnHeader clH_ChuyenNganh;
         private ColumnHeader clH_GioiTinh;
         private ColumnHeader clH_SoMon;
+        private Panel pnlMain;
     }
 }

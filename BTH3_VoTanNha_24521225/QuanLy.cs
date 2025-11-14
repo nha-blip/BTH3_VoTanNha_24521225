@@ -66,6 +66,9 @@ namespace BTH3_VoTanNha_24521225
             }
         }
 
-        
+        private void QuanLy_Resize(object sender, EventArgs e)
+        {
+            pnlMain.Location= new Point((ClientSize.Width-pnlMain.Width)/2,(ClientSize.Height-pnlMain.Height)/2);
+        }
     }
 }

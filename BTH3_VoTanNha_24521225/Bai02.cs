@@ -35,8 +35,8 @@ namespace BTH3_VoTanNha_24521225
             Graphics g = e.Graphics;
             Font font = new Font("san-serif", 30);
             Brush brush = new SolidBrush(color);
-            textsize = g.MeasureString("Hello World", font);
-            g.DrawString("Hello world", font, brush, new Point(x, y));
+            textsize = g.MeasureString("Paint Event", font);
+            g.DrawString("Paint Event", font, brush, new Point(x, y));
         }
         private void btnPaint_Click(object sender, EventArgs e)
         {

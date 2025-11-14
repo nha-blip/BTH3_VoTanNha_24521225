@@ -33,13 +33,14 @@
             // 
             // btnChangeColor
             // 
+            btnChangeColor.Anchor = AnchorStyles.None;
             btnChangeColor.Location = new Point(333, 165);
             btnChangeColor.Name = "btnChangeColor";
             btnChangeColor.Size = new Size(132, 29);
             btnChangeColor.TabIndex = 0;
             btnChangeColor.Text = "Change Color";
             btnChangeColor.UseVisualStyleBackColor = true;
-            btnChangeColor.Click += this.btnChangeColor_Click;
+            btnChangeColor.Click += btnChangeColor_Click;
             // 
             // Bai03
             // 
@@ -48,7 +49,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(btnChangeColor);
             Name = "Bai03";
-            Text = "Form1";
+            Text = "Bai03";
+            Resize += Bai03_Resize;
             ResumeLayout(false);
         }
 

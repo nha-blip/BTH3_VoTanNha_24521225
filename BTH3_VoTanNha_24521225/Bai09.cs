@@ -21,14 +21,14 @@ namespace BTH3_VoTanNha_24521225
             foreach (object item in lb_MonHoc.SelectedItems)
             {
                 bool flag = false;
-                foreach(object item2 in lb_ThamGia.Items)
+                foreach (object item2 in lb_ThamGia.Items)
                 {
                     if (item == item2)
                         flag = true;
-                    
+
                 }
-                if(!flag)   lb_ThamGia.Items.Add(item);
-                
+                if (!flag) lb_ThamGia.Items.Add(item);
+
             }
         }
         public void btn_Right_Click(object sender, EventArgs e)
@@ -40,6 +40,10 @@ namespace BTH3_VoTanNha_24521225
         {
             if (txt_MSSV.Text == "" || txt_HoTen.Text == "" || (chB_female.Checked == false && chB_Male.Checked == false))
                 MessageBox.Show("Hãy nhập đủ thông tin!");
+            else if (!int.TryParse(txt_MSSV.Text, out int a))
+            {
+                MessageBox.Show("MSSV phải là một số");
+            }
             else
             {
                 ListViewItem item = new ListViewItem("*");
@@ -48,11 +52,11 @@ namespace BTH3_VoTanNha_24521225
                 item.SubItems.Add(cbB_ChuyenNganh.Text);
                 item.SubItems.Add(chB_female.Checked ? "Nữ" : "Nam");
                 item.SubItems.Add(lb_ThamGia.Items.Count.ToString());
-                for(int i=0;i<lv_QuanLy.Items.Count;i++)
+                for (int i = 0; i < lv_QuanLy.Items.Count; i++)
                 {
                     if (lv_QuanLy.Items[i].SubItems[1].Text == txt_MSSV.Text)
                     {
-                        lv_QuanLy.Items[i].SubItems[5].Text =lb_ThamGia.Items.Count.ToString();
+                        lv_QuanLy.Items[i].SubItems[5].Text = lb_ThamGia.Items.Count.ToString();
                         return;
                     }
                 }
@@ -76,6 +80,11 @@ namespace BTH3_VoTanNha_24521225
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             lb_MonHoc.SelectedItems.Clear();
+        }
+
+        private void Bai09_Resize(object sender, EventArgs e)
+        {
+            pnlMain.Location = new System.Drawing.Point((ClientSize.Width - pnlMain.Width) / 2, (ClientSize.Height - pnlMain.Height) / 2);
         }
     }
 }

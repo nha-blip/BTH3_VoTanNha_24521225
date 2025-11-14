@@ -43,6 +43,7 @@
             // 
             // btnOpen
             // 
+            btnOpen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnOpen.Location = new Point(681, 30);
             btnOpen.Name = "btnOpen";
             btnOpen.Size = new Size(94, 29);
@@ -53,6 +54,7 @@
             // 
             // btnClose
             // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClose.Location = new Point(681, 79);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 29);

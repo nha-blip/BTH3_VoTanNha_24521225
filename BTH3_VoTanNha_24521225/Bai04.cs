@@ -10,7 +10,7 @@ namespace BTH3_VoTanNha_24521225
         private void colorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog color = new ColorDialog();
-            color.ShowDialog();
+            if(color.ShowDialog()==DialogResult.OK)
             this.BackColor = color.Color;
         }
     }

@@ -17,10 +17,10 @@ namespace BTH3_VoTanNha_24521225
             InitializeComponent();
             for (int i = 0; i < 15; i++)
             {
-                btn[i] = this.Controls.Find($"button{i + 1}", true)[0] as Button;
+                btn[i] = this.Controls.Find($"btn{i + 1}", true)[0] as Button;
             }
         }
-        void button_Click(object sender, EventArgs e)
+        void btn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             if (btn.BackColor == Color.White)
@@ -31,23 +31,22 @@ namespace BTH3_VoTanNha_24521225
             {
                 btn.BackColor = Color.White;
             }
-            else if (btn.BackColor == Color.Yellow) 
+            else if (btn.BackColor == Color.Yellow)
             {
                 MessageBox.Show("Vé đã được bán");
             }
         }
-        Button[] btn = new Button[15];  
-        void button16_Click(object sender, EventArgs e)
+        Button[] btn = new Button[15];
+        void btnSelect_Click(object sender, EventArgs e)
         {
-            
-            for(int i = 0; i < 15; i++)
-            {
-                btn[i] = this.Controls.Find($"button{i + 1}", true)[0] as Button;
-            }
             int sum = 0;
+            for (int i = 0; i < 15; i++)
+            {
+                btn[i] = this.Controls.Find($"btn{i + 1}", true)[0] as Button;
+            }
             foreach (Button Btn in btn)
             {
-                if(Btn.BackColor == Color.Blue)
+                if (Btn.BackColor == Color.Blue)
                 {
                     Btn.BackColor = Color.Yellow;
                     if (int.Parse(Btn.Text) >= 1 && int.Parse(Btn.Text) < 6)
@@ -61,9 +60,9 @@ namespace BTH3_VoTanNha_24521225
                     else sum += 8000;
                 }
             }
-            textBox1.Text= sum.ToString();
+            txtTotal.Text = sum.ToString();
         }
-        void button17_Click(object sender, EventArgs e)
+        void btnCancel_Click(object sender, EventArgs e)
         {
             foreach (Button button in btn)
             {
@@ -72,11 +71,11 @@ namespace BTH3_VoTanNha_24521225
                     button.BackColor = Color.White;
                 }
             }
-            textBox1.Text = "0";
+            txtTotal.Text = "0";
         }
-        void button18_Click(object sender, EventArgs e)
+        void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult result=MessageBox.Show("Bạn có chắc muốn thoát!",
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát!",
                             "Thoát",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
@@ -84,6 +83,11 @@ namespace BTH3_VoTanNha_24521225
             {
                 Close();
             }
+        }
+
+        private void Bai07_Resize(object sender, EventArgs e)
+        {
+            pnlButtons.Location = new Point((ClientSize.Width-pnlButtons.Width)/2,(ClientSize.Height-pnlButtons.Height)/2);
         }
     }
 }

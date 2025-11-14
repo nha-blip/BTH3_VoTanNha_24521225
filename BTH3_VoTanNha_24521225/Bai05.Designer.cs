@@ -31,13 +31,15 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            txtNumber1 = new TextBox();
+            txtNumber2 = new TextBox();
+            txtAnswer = new TextBox();
+            btnPlus = new Button();
+            btnMinus = new Button();
+            btnMultiply = new Button();
+            btnDivide = new Button();
+            pnlMain = new Panel();
+            pnlMain.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -67,95 +69,110 @@
             label3.TabIndex = 2;
             label3.Text = "Answer";
             // 
-            // textBox1
+            // txtNumber1
             // 
-            textBox1.Location = new Point(206, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 27);
-            textBox1.TabIndex = 3;
+            txtNumber1.Location = new Point(206, 70);
+            txtNumber1.Name = "txtNumber1";
+            txtNumber1.Size = new Size(230, 27);
+            txtNumber1.TabIndex = 3;
             // 
-            // textBox2
+            // txtNumber2
             // 
-            textBox2.Location = new Point(206, 110);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(230, 27);
-            textBox2.TabIndex = 4;
+            txtNumber2.Location = new Point(206, 110);
+            txtNumber2.Name = "txtNumber2";
+            txtNumber2.Size = new Size(230, 27);
+            txtNumber2.TabIndex = 4;
             // 
-            // textBox3
+            // txtAnswer
             // 
-            textBox3.Location = new Point(206, 226);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(230, 27);
-            textBox3.TabIndex = 5;
+            txtAnswer.Location = new Point(206, 226);
+            txtAnswer.Name = "txtAnswer";
+            txtAnswer.ReadOnly = true;
+            txtAnswer.Size = new Size(230, 27);
+            txtAnswer.TabIndex = 5;
             // 
-            // button1
+            // btnPlus
             // 
-            button1.BackColor = SystemColors.ActiveBorder;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(137, 151);
-            button1.Name = "button1";
-            button1.Size = new Size(59, 52);
-            button1.TabIndex = 6;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = false;
+            btnPlus.BackColor = SystemColors.ActiveBorder;
+            btnPlus.FlatStyle = FlatStyle.Flat;
+            btnPlus.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPlus.Location = new Point(137, 151);
+            btnPlus.Name = "btnPlus";
+            btnPlus.Size = new Size(59, 52);
+            btnPlus.TabIndex = 6;
+            btnPlus.Text = "+";
+            btnPlus.UseVisualStyleBackColor = false;
+            btnPlus.Click += btnPlus_Click;
             // 
-            // button2
+            // btnMinus
             // 
-            button2.BackColor = SystemColors.ActiveBorder;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(215, 151);
-            button2.Name = "button2";
-            button2.Size = new Size(59, 52);
-            button2.TabIndex = 7;
-            button2.Text = "-";
-            button2.UseVisualStyleBackColor = false;
+            btnMinus.BackColor = SystemColors.ActiveBorder;
+            btnMinus.FlatStyle = FlatStyle.Flat;
+            btnMinus.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMinus.Location = new Point(215, 151);
+            btnMinus.Name = "btnMinus";
+            btnMinus.Size = new Size(59, 52);
+            btnMinus.TabIndex = 7;
+            btnMinus.Text = "-";
+            btnMinus.UseVisualStyleBackColor = false;
+            btnMinus.Click += btnMinus_Click;
             // 
-            // button3
+            // btnMultiply
             // 
-            button3.BackColor = SystemColors.ActiveBorder;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(291, 151);
-            button3.Name = "button3";
-            button3.Size = new Size(59, 52);
-            button3.TabIndex = 8;
-            button3.Text = "*";
-            button3.UseVisualStyleBackColor = false;
+            btnMultiply.BackColor = SystemColors.ActiveBorder;
+            btnMultiply.FlatStyle = FlatStyle.Flat;
+            btnMultiply.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMultiply.Location = new Point(291, 151);
+            btnMultiply.Name = "btnMultiply";
+            btnMultiply.Size = new Size(59, 52);
+            btnMultiply.TabIndex = 8;
+            btnMultiply.Text = "*";
+            btnMultiply.UseVisualStyleBackColor = false;
+            btnMultiply.Click += btnMultiply_Click;
             // 
-            // button4
+            // btnDivide
             // 
-            button4.BackColor = SystemColors.ActiveBorder;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(368, 151);
-            button4.Name = "button4";
-            button4.Size = new Size(59, 52);
-            button4.TabIndex = 9;
-            button4.Text = "/";
-            button4.UseVisualStyleBackColor = false;
+            btnDivide.BackColor = SystemColors.ActiveBorder;
+            btnDivide.FlatStyle = FlatStyle.Flat;
+            btnDivide.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDivide.Location = new Point(368, 151);
+            btnDivide.Name = "btnDivide";
+            btnDivide.Size = new Size(59, 52);
+            btnDivide.TabIndex = 9;
+            btnDivide.Text = "/";
+            btnDivide.UseVisualStyleBackColor = false;
+            btnDivide.Click += btnDivide_Click;
+            // 
+            // pnlMain
+            // 
+            pnlMain.Anchor = AnchorStyles.None;
+            pnlMain.Controls.Add(label1);
+            pnlMain.Controls.Add(label2);
+            pnlMain.Controls.Add(label3);
+            pnlMain.Controls.Add(txtNumber1);
+            pnlMain.Controls.Add(txtNumber2);
+            pnlMain.Controls.Add(txtAnswer);
+            pnlMain.Controls.Add(btnPlus);
+            pnlMain.Controls.Add(btnMinus);
+            pnlMain.Controls.Add(btnMultiply);
+            pnlMain.Controls.Add(btnDivide);
+            pnlMain.Location = new Point(403, 317);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(516, 298);
+            pnlMain.TabIndex = 10;
             // 
             // Bai05
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(1043, 578);
+            Controls.Add(pnlMain);
             Name = "Bai05";
-            Text = "Form2";
+            Text = "Bai05";
+            Resize += Bai05_Resize;
+            pnlMain.ResumeLayout(false);
+            pnlMain.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -163,12 +180,13 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private TextBox txtNumber1;
+        private TextBox txtNumber2;
+        private TextBox txtAnswer;
+        private Button btnPlus;
+        private Button btnMinus;
+        private Button btnMultiply;
+        private Button btnDivide;
+        private Panel pnlMain;
     }
 }
